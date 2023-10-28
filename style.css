@@ -1,0 +1,192 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+}
+
+h1,
+h2 {
+    text-align: center;
+}
+
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #003366;
+    color: white;
+}
+
+#img_left,
+#img_right {
+    flex: 0 0 auto;
+}
+
+#img_left img,
+#img_right img {
+    max-width: 100%;
+    height: auto;
+}
+
+#title {
+    flex: 1 1 auto;
+    text-align: center;
+    margin: 0;
+}
+
+#section {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.btn-group1 {
+    display: flex;
+    justify-content: center;
+    border-radius: 4px;
+}
+
+.btn-group1 button {
+    background-color: #003366;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+.btn-group1 button:hover {
+    background-color: #6a819c;
+}
+
+.container {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin: 0 auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    /* Adding bold font to labels for emphasis */
+}
+
+input[type="text"],
+input[type="password"] {
+    /* ... (other styles) ... */
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 12px;
+}
+
+input[type="submit"] {
+    background-color: #003366;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 90%;
+}
+
+input[type="submit"]:hover {
+    background-color: #002855;
+}
+
+.error-message {
+    color: #ff0000;
+    margin-top: 10px;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+/* Add mobile-specific styles here */
+@media (max-width: 768px) {
+    body {
+        font-size: 16px;
+        /* Adjust the base font size for smaller screens */
+    }
+
+    /* Center align the login form on smaller screens */
+    .container {
+        width: 80%;
+        /* Make the login form wider for better readability */
+        margin: 0 auto;
+    }
+
+    /* Adjust the button styles for smaller screens */
+    input[type="submit"] {
+        width: 100%;
+        /* Make the login button full-width */
+    }
+
+    /* Adjust the header layout for smaller screens */
+    #header {
+        flex-direction: column;
+        /* Stack header elements vertically */
+        text-align: center;
+        /* Center-align text in the header */
+    }
+
+    /* Reduce padding and font size for smaller screens */
+    #title {
+        padding: 10px;
+        font-size: 20px;
+    }
+
+    /* Adjust button group styles for smaller screens */
+    .btn-group1 {
+        flex-direction: column;
+        /* Stack buttons vertically */
+        align-items: center;
+        /* Center-align buttons */
+    }
+}
+
+
+/* Add tablet-specific styles here */
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    /* Adjust the container width for tablets */
+    .container {
+        width: 60%;
+        /* Make the login form wider for tablets */
+    }
+
+    /* Adjust the header layout for tablets */
+    #header {
+        flex-direction: row;
+        /* Revert header elements to a horizontal layout */
+        justify-content: space-between;
+        /* Space out header elements */
+        padding: 20px;
+    }
+
+    /* Reset font size for the title */
+    #title {
+        font-size: 24px;
+        /* Increase font size for tablets */
+    }
+
+    /* Reset button group styles for tablets */
+    .btn-group1 {
+        flex-direction: row;
+        /* Place buttons horizontally for tablets */
+    }
+}

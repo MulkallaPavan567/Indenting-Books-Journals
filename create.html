@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Admin Login</title>
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <style>
+        /* Your existing CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+
+        #header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: #003366;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        #img_left,
+        #img_right {
+            flex: 0 0 auto;
+        }
+
+        #img_left img,
+        #img_right img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        #title {
+            flex: 1 1 auto;
+            text-align: center;
+            margin: 0;
+        }
+
+        #section {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .btn-group1 {
+            display: flex;
+            justify-content: center;
+        }
+
+        .btn-group1 button {
+            background-color: #003366;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 4px;
+        }
+
+        .btn-group1 button:hover {
+            background-color: #6a819c;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        /*label {
+                    display: block;
+                    margin-bottom: 6px;
+                    font-weight: bold;  Adding bold font to labels for emphasis 
+                }*/
+        label {
+            display: inline-block;
+            width: 150px;
+            margin-right: 1px;
+            text-align: left;
+            padding: 10px 5px 5px 20px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            /* ... (other styles) ... */
+            width: 95%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 12px;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            background-color: #003366;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            /* Adjust padding here */
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 14px;
+            /* Adjust font size here */
+        }
+
+        input[type="reset"] {
+            margin-left: 10px;
+            /* Adjust the margin as needed */
+        }
+
+        input[type="submit"]:hover {
+            background-color: #00285585;
+        }
+
+        input[type="reset"]:hover {
+            background-color: #00285585;
+        }
+
+        .error-message {
+            color: #ff0000;
+            margin-top: 10px;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
+        #button {
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+        }
+
+        /* Additional styles for the forms */
+        #form-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        #form-container>div {
+            width: 48%;
+            /* Adjust as needed */
+            box-sizing: border-box;
+            /* Include padding and border in width calculation */
+        }
+
+        #form-left,
+        #form-right {
+            width: 50%;
+            /* Adjust as needed */
+            box-sizing: border-box;
+            /* Include padding and border in width calculation */
+        }
+
+        #form-left {
+            float: left;
+        }
+
+        #form-right {
+            float: right;
+        }
+
+        #navigation {
+            background-color: #f7f7f7;
+            padding: 10px;
+            width: 100%;
+            /* Adjust as needed */
+        }
+
+        #navigation form {
+            max-width: 90%;
+        }
+
+        #create-user-btn.active {
+            background-color: #6a819c;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Your header code here -->
+    <header>
+        <div id="header">
+            <div id="img_left">
+                <img src="uoh_logo_white.png" alt="University of Hyderabad">
+            </div>
+            <div id="title">
+                <h1>School of Computer and Information Sciences</h1>
+                <h2>Library Books / Journals Indenting System</h2>
+            </div>
+            <div id="img_right">
+                <img src="uoh_ioe_white.png" alt="University of Hyderabad">
+            </div>
+        </div>
+    </header>
+
+    <div id="section" class="btn-group1">
+        <!-- Your button links here -->
+        <button onclick="window.location.href='create.html'" id="create-user-btn">Create New User</button>
+        <button onclick="window.location.href='update_user.php'">Manage Users</button>
+        <button onclick="window.location.href='edit_profile.html'">Edit Profile</button>
+        <button onclick="window.location.href='adding_books.html'">Add Books</button>
+        <button onclick="window.location.href='managing_books.html'">Manage Books</button>
+        <button onclick="window.location.href='adding_journals.html'">Add Journals</button>
+        <button onclick="window.location.href='managing_journals.html'">Manage Journals</button>
+        <button onclick="window.location.href='approve.html'">Approve</button>
+        <button onclick="window.location.href='admin1.php'">Logout</button>
+    </div>
+
+    <div id="form-left">
+        <div id="navigation">
+            <center>
+                <form action="insert.php" method="POST">
+                    <!-- Left form content -->
+                    <h2>Add New User's Individually</h2>
+
+                    <label for="fname">FULL NAME :</label>
+                    <input type="text" id="fname" min="3" max="30" name="fname" size="30"
+                        placeholder="enter your fullname" required><br>
+                    <label for="username">USER NAME :</label>
+                    <input type="text" id="username" name="username" size="30" placeholder="xyz@gmail.com"
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required><br>
+                    <label for="password">PASSWORD:</label>
+                    <div style="position: relative;">
+                        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                        <span id="password-toggle" class="password-toggle" onclick="togglePasswordVisibility()">
+                            <img src="eye-slash.svg" alt="Toggle Password Visibility">
+                        </span>
+                    </div>
+                    <div id="button">
+                        <input type="submit" value="Submit" id="submit">
+                        <input type="reset" value="Reset">
+                    </div>
+                </form>
+            </center>
+        </div>
+    </div>
+
+    <div id="form-right">
+        <div id="navigation">
+            <center>
+                <form action="insertion.php" method="POST" enctype="multipart/form-data">
+                    <!-- Right form content -->
+                    <h2>Bulk Uploading of New User's</h2>
+                    <br><br>
+                    <!-- Existing input fields -->
+
+                    <label for="csvfile">Upload CSV File:</label>
+                    <input type="file" id="csvfile" name="csvfile" accept=".csv">
+                    <br><br><br><br>
+                    <div id="button">
+                        <input type="submit" value="Submit" id="submit">
+                        <input type="reset" value="Reset" id="reset">
+                    </div>
+                </form>
+            </center>
+        </div>
+    </div>
+    <script>
+        // Get the current page URL
+        var currentPage = window.location.href;
+    
+        // Check if the current page URL matches the "new_user.html" URL
+        if (currentPage.includes("create.html")) {
+            // Add the "active" class to the button
+            document.getElementById("create-user-btn").classList.add("active");
+        }
+    </script>
+    <script>
+        function togglePasswordVisibility() {
+            var passwordInput = document.getElementById("password");
+            var passwordToggle = document.getElementById("password-toggle");
+
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                passwordToggle.innerHTML = '<img src="eye.svg" alt="Toggle Password Visibility">';
+            } else {
+                passwordInput.type = "password";
+                passwordToggle.innerHTML = '<img src="eye-slash.svg" alt="Toggle Password Visibility">';
+            }
+        }
+    </script>
+</body>
+
+</html>

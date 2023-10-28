@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>View_booking</title>
+    <link rel="stylesheet" href="audit.css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <style>
+        #navigation
+        {
+            background-color:lightgreen;
+            border: solid lightcoral;
+            padding-top:20px;
+            padding-bottom: 150px;
+
+        }
+  </style>
+</head>
+<body>
+    <div id="header">
+        <h1>Auditorium Management Website</h1>
+        <img src="uoh.jpg" alt="University of Hyderabad">
+        </div>
+        <div id="section" align="left" class="btn-group1">
+            <button onclick="window.location.href='audit.html'">Home</button>
+            <button onclick="window.location.href='View_booking.html'">View Booking</button>
+        </div>
+        
+        <div id="navigation">
+        <h1><u>View Booking Information</u> </h1>
+          <form action="select.php" method="post" > 
+            <center>
+          <label for="mobile"><b> MOBILE NUMBER : </b></label>
+          <input type="text" name="search" max="10" required ><br><br>
+            <input type="submit"  value="search"></center>
+        </form> 
+        </div>
+    
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Admin Login</title>
+
+    <link rel="stylesheet" href="style.css">
+    <!--<link rel="stylesheet" href="new_user.css">-->
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+
+    <style>
+        form
+        {
+        height:auto;
+        width:auto;
+        }
+        label
+            {
+            display:inline-block;
+            width:100%;
+            margin-right:1px;
+            text-align:left;
+            padding: 10px 5px 5px 20px;
+            font-weight:bold;
+            }
+
+            body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f7f7f7;
+        }
+
+        #header {
+        /* Header styles */
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px;
+        background-color: #003366;
+        color: white;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        /* Higher z-index for header */
+        }
+
+        #navigation {
+        /* Navigation styles */
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px;
+        background-color: #f7f7f7;
+        color: white;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        /* Lower z-index for navigation */
+        }
+
+        #section {
+        background-color: #f7f7f7;
+        padding: 10px;
+        width: 100%;
+        /* Adjust as needed */
+        }
+
+        #section form {
+        max-width: 50%;
+        }
+
+        #img_left,
+        #img_right {
+        flex: 0 0 auto;
+        }
+
+        #img_left img,
+        #img_right img {
+        max-width: 100%;
+        height: auto;
+        }
+
+        #title {
+        flex: 1 1 auto;
+        text-align: center;
+        margin: 0;
+        }
+
+        .btn-group1 {
+        display: flex;
+        justify-content: center;
+        }
+
+        .btn-group1 button {
+        background-color: #003366;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        margin: 0 10px;
+        cursor: pointer;
+        font-size: 16px;
+        border-radius: 4px;
+        }
+
+        .btn-group1 button:hover {
+        background-color: #6a819c;
+        color: rgb(20, 20, 20);
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="number"] {
+        width: 95%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-bottom: 12px;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+        background-color: #003366;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 4px;
+        font-size: 16px;
+        width: 30%;
+        }
+
+        input[type="submit"]:hover {
+        background-color: #002855;
+        }
+
+        .error-message {
+        color: #ff0000;
+        margin-top: 10px;
+        }
+
+        .password-toggle {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        }
+
+        #create-user-btn.active {
+        background-color: #6a819c;
+        }
+
+        .horizontal-line {
+        border: none;
+        height: 4px;
+        /* Adjust the height as needed */
+        background-color: #003366;
+        /* Change the color as needed */
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+    <div id="header" class="btn-group1">
+        <div id="img_left">
+            <img src="uoh_logo_white.png" alt="University of Hyderabad">
+        </div>
+        <div id="title">
+            <h1>School of Computer and Information Sciences</h1>
+            <h2>Library Books / Journals Indenting System</h2>
+            
+        </div>
+        
+
+        <div id="img_right">
+            <img src="uoh_ioe_white.png" alt="University of Hyderabad">
+        </div>
+    </div>
+</header>
+    <div id="navigation" class="btn-group1">       
+            <button onclick="window.location.href='new_user.html'" id="create-user-btn">Create New User</button>
+            <button onclick="window.location.href='manage_users/index3.php'">Manage Users</button>
+            <button onclick="window.location.href='edit_profile.html'">Edit Profile</button>
+            <button onclick="window.location.href='adding_books.html'">Add Books</button>
+            <button onclick="window.location.href='managing_books.html'">Manage Books</button>
+            <button onclick="window.location.href='adding_journals.html'">Add Journals</button>
+            <button onclick="window.location.href='managing_journals.html'">Manage Journals</button>
+            <button onclick="window.location.href='approve.html'">Approve</button>
+            <button onclick="window.location.href='../indent/admin1.php'">Logout</button>
+    </div>
+    <div id="section">
+        <center>
+            <form action="insert.php" method="POST">
+
+                <h2>Add New User's Individually</h2>
+
+                <label for="fname">FULL NAME :</label>
+                <input type="text" id="fname" min="3" max="30" name="fname" size="30" placeholder="enter your name"
+                    required><br>
+                <label for="username">USER NAME :</label>
+                <input type="text" id="username" name="username" size="30" placeholder="xyz@gmail.com"
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required><br>
+                <label for="password">PASSWORD:</label>
+                <div style="position: relative;">
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    <span id="password-toggle" class="password-toggle" onclick="togglePasswordVisibility()">
+                        <img src="eye-slash.svg" alt="Toggle Password Visibility">
+                    </span>
+                </div>
+                <div id="button">
+                    <input type="submit" value="submit" id="submit">
+                    <input type="reset" value="Reset">
+                </div>
+            </form>
+        </center>
+    </div>
+    <br>
+    <hr class="horizontal-line">
+    
+    <div id="section">
+        <center>
+            <form action="insertion.php" method="POST" enctype="multipart/form-data">
+
+                <h2>Bulk Uploading of New User's</h2>
+
+                <!-- Existing input fields -->
+
+                <label for="csvfile">Upload CSV File:</label>
+                <input type="file" id="csvfile" name="csvfile" accept=".csv">
+                <br><br>
+                <div id="button">
+                    <input type="submit" value="Submit" id="submit">
+                    <input type="reset" value="Reset" id="reset">
+                </div>
+            </form>
+        </center>
+    </div>
+    <script>
+        // Get the current page URL
+        var currentPage = window.location.href;
+
+        // Check if the current page URL matches the "new_user.html" URL
+        if (currentPage.includes("new_user.html")) {
+            // Add the "active" class to the button
+            document.getElementById("create-user-btn").classList.add("active");
+        }
+    </script>
+    <script>
+        function togglePasswordVisibility() {
+            var passwordInput = document.getElementById("password");
+            var passwordToggle = document.getElementById("password-toggle");
+
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                passwordToggle.innerHTML = '<img src="eye.svg" alt="Toggle Password Visibility">';
+            } else {
+                passwordInput.type = "password";
+                passwordToggle.innerHTML = '<img src="eye-slash.svg" alt="Toggle Password Visibility">';
+            }
+        }
+    </script>
+
+</body>
+
+</html>
